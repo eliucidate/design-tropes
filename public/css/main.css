@@ -1,0 +1,812 @@
+@font-face {
+    font-family: "Neuzeit";
+    src: url(../fonts/Neuzeit-S-LT-Std-Book_32182.ttf) format("truetype");
+}
+
+@font-face {
+    font-family: "Neuzeit Heavy";
+    src: url(../fonts/Neuzeit-S-LT-Std-Book-Heavy_32181.ttf) format("truetype");
+}
+
+@font-face {
+    font-family: "Adobe";
+    src: url(../fonts/Adobe Caslon Pro Regular.ttf) format("truetype");
+}
+
+@font-face {
+    /* get this font */
+    font-family: "Fakt";
+    src: url(../fonts/faktpro-semibold.ttf) format("truetype");
+}
+
+.font1 {
+    font-family: "Neuzeit";
+    font-size: 50px;
+    color: black;
+}
+
+.font1 a:hover, .font1 a:focus {
+    text-decoration: none;
+    color: #4779EA;
+}
+
+.font2 {
+    font-family: "Adobe";
+    font-size: 52px;
+    color: black;
+}
+
+.font3 {
+    font-family: "Fakt";
+    font-size: 20px;
+    text-transform: uppercase;
+    color: black;
+}
+
+.font4 {
+    font-family: "Neuzeit Heavy";
+    font-size: 50px;
+    color: black;
+}
+
+.font5 {
+    font-family: "Neuzeit Heavy";
+    font-size: 15px;
+    color: black;
+}
+body {
+    padding-right: 123px;
+    padding-left: 123px;
+    padding-bottom: 50px;
+    margin: 0;
+    font-family: "Neuzeit";
+}
+
+.overlay {
+    height: 0%;
+    width: 100%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #537AE9;
+    overflow-y: hidden;
+    transition: 0.5s;
+}
+
+.overlay-content {
+    position: relative;
+    top: 25%;
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.overlay a {
+    padding: 8px;
+    text-decoration: none;
+    font-size: 36px;
+    color: black;
+    display: block;
+    transition: 0.3s;
+}
+
+.overlay a:hover, .overlay a:focus {
+    color: #f1f1f1;
+}
+
+.overlay .closebtn {
+    position: absolute;
+    top: 0px;
+    right: 45px;
+    font-size: 60px;
+}
+
+#myNav2 {
+    height: 0%;
+    background-color: #00B992;
+}
+
+.search {
+    position: absolute;
+    top: 35px;
+    left: 123px;
+    padding-bottom: 10px;
+}
+#menu {
+    display: inline-block;
+    cursor:pointer;
+}
+
+#searchIcon {
+    display: inline-block;
+}
+
+.title {
+    padding-top: 70px;
+    display: block;
+    width: 100%;
+}
+
+.header {
+    color: #D3D3D3;
+    padding-top: 10px;
+    display: block;
+    width: 100%;
+    border-bottom: 1px solid #D3D3D3;
+}
+
+.header h5{
+    display: inline-block;
+    padding-right: 40px;
+}
+
+.header ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.header li {
+    float: left;
+}
+
+.header li a {
+    display: block;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.header a {
+    color: #D3D3D3;
+}
+
+#searchInput {
+    display: inline-block;
+    width: 25%;
+}
+ br {
+        line-height: 5px;
+     }
+
+
+.columns2 {
+    -webkit-column-count: 3; /* Chrome, Safari, Opera */
+    -moz-column-count: 3; /* Firefox */
+    column-count: 3;
+}
+
+.columns2 a:hover {
+    text-decoration: none;
+    color: white;
+}
+
+.columns {
+    -webkit-column-count: 3; /* Chrome, Safari, Opera */
+    -moz-column-count: 3; /* Firefox */
+    column-count: 3;
+}
+
+.columns a:hover {
+    text-decoration: none;
+    color: #4779EA;
+}
+
+#trope1 {
+    color: #e3a5ca;
+}
+
+#trope2 {
+    color: #ea4412;
+}
+
+#trope3 {
+    color: #0059ad;
+}
+
+#trope4 {
+    color: #8c85a8;
+}
+
+#trope5 {
+    color: #d9af88;
+}
+
+#trope6 {
+    color: #9ce8bb;
+}
+
+#trope7 {
+    color: #7d8ee9;
+}
+
+#trope8 {
+    color: #2cb68b;
+}
+
+#trope9 {
+    color: #fd7700;
+}
+
+#trope10 {
+    color: #fdbd23;
+}
+
+#trope11 {
+    color: #c1bfc1;
+}
+
+#trope1:hover {
+    text-decoration: none;
+    color: #4779EA;
+}
+
+#trope2:hover {
+    text-decoration: none;
+    color: #4779EA;
+}
+
+#trope3:hover {
+    text-decoration: none;
+    color: #4779EA;
+}
+
+#trope4:hover {
+    text-decoration: none;
+    color: #4779EA;
+}
+
+#trope5:hover {
+    text-decoration: none;
+    color: #4779EA;
+}
+
+#trope6:hover {
+    text-decoration: none;
+    color: #4779EA;
+}
+
+#trope7:hover {
+    text-decoration: none;
+    color: #4779EA;
+}
+
+#trope8:hover {
+    text-decoration: none;
+    color: #4779EA;
+}
+
+#trope9:hover {
+    text-decoration: none;
+    color: #4779EA;
+}
+
+#trope10:hover {
+    text-decoration: none;
+    color: #4779EA;
+}
+
+#trope11:hover {
+    text-decoration: none;
+    color: #4779EA;
+}
+
+.trope {
+    font-family: "Neuzeit";
+    font-size: 30px;
+}
+
+.trope a:hover {
+    text-decoration: none;
+    color: #4779EA;
+}
+#footer2 {
+    bottom:0px;
+}
+#footitem {
+    color: #4779EA;
+}
+
+button,
+input{
+    color: inherit;
+    font: inherit;
+    margin: 0
+}
+
+input[type="text"],
+input[type="number"],
+input[type="search"],
+textarea,
+input[type="file"], #textarea,
+select {
+    background-color: #537AE9;
+    border:none;
+    border-bottom: 1px solid black;
+    border-radius: 0;
+    display: block;
+    margin-bottom: 1.7453560168rem;
+    outline: none;
+    padding: 1.190015466rem 1.0472136101rem 1.0472136101rem;
+    width: 100%;
+    color: black;
+}
+
+input {
+    line-height: normal
+}
+
+input::-webkit-input-placeholder {
+color: black !important;
+}
+
+input:-moz-placeholder { /* Firefox 18- */
+color: black !important;
+}
+
+input::-moz-placeholder {  /* Firefox 19+ */
+color: black !important;
+}
+
+input:-ms-input-placeholder {
+color: black !important;
+}
+
+
+.input-group-addon{color:#ff0000; background-color: #ffffff;}
+
+
+
+/*@media screen and (min-width: 50em) {
+  /* fits 4 images into the screen */
+  #images a {
+    width: calc(25% - 6px);
+  }
+
+  /* give 0 margin to the last picture in each row
+  #images a:nth-of-type(4n) {
+    margin-right: 0;
+  }
+}*/
+/* image grid */
+
+
+/* the following css was inspired by:
+https://www.sitepoint.com/using-modern-css-to-build-a-responsive-image-grid/*/
+
+/* div container 80% of the screen width */
+
+/* use flex to organize images*/
+#images{
+    padding: 20px;
+  column-count: 3; /*Set the column count*/
+     -webkit-column-count: 3;
+     -moz-column-count: 3;
+
+     column-gap: 0.1; /*Set the gap between the 3 columns */
+     -webkit-column-gap:0.1;
+     -moz-column-gap: 0.1;
+}
+
+/* style and caption the images*/
+#images a {
+  display: inline;
+  margin-bottom: 8px;
+  width: 50%;
+  margin-right: 8px;
+  text-decoration: none;
+  color: white;
+  text-align: center;
+  height: auto;
+}
+
+/* handle images when the screen is resized*/
+@media screen and (min-width: 50em) {
+  /* fits 4 images into the screen */
+  #images a {
+    width: calc(33% - 6px);
+  }
+
+  /* give 0 margin to the last picture in each row*/
+  #images a:nth-of-type(4n) {
+    margin-right: 0;
+  }
+}
+
+/* increase the size of each image
+  and zoom in by 1.15x on hover*/
+
+#images figure {
+  margin: 0;
+  /*don't allow the images to overlap with eachother*/
+  overflow: hidden;
+  height:auto;
+}
+
+
+/* height based on the width; width 100% of the a tag*/
+#images img {
+  max-width: 100%;
+  display: inline;
+  height: auto;
+
+  /* slows down the hover transition, so it flows better
+  -webkit-transition: -webkit-transform .2s ease-in-out;
+  transition: -webkit-transform .2s ease-in-out;
+  transition: transform .2s ease-in-out;
+  transition: transform .2s ease-in-out, -webkit-transform .2s ease-in-out;*/
+}
+/*.cont:hover .over{
+  opacity: 1;
+  transition: .5s ease;
+  background-color: #008CBA;
+  -webkit-transform: scale(1.15);
+          transform: scale(1.15);
+}*/
+
+
+.cont {
+    position: relative;
+    padding-bottom: 2px;
+}
+
+/*.over {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: .5s ease;
+  background-color: #008CBA;
+}*/
+.cont img {
+      box-shadow: 0 1px 2px rgba(0,0,0,0.15);
+  transition: box-shadow 0.3s ease-in-out;
+}
+.cont:hover img{
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+/*.cont:hover .over {
+  opacity: 0.5;
+}
+
+.txt {
+  color: white;
+  font-size: 20px;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}*/
+
+
+
+@media screen and (max-height: 450px) {
+  .overlay {overflow-y: auto;}
+  .overlay a {font-size: 20px}
+  .overlay .closebtn {
+    font-size: 40px;
+    top: 15px;
+    right: 35px;
+}
+    #images a {
+    width: calc(25% - 6px);
+    display: inline;
+  }
+
+  /* give 0 margin to the last picture in each row*/
+  #images a:nth-of-type(4n) {
+    margin-right: 0;
+  }
+  }
+
+/* login form */
+#background {
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    width: 50%;
+    height: 0%;
+    background-color: blue;
+    opacity: 20%;
+    z-index: 1;
+}
+#login {
+    position: absolute;
+    top: 35px;
+    right: 123px;
+    cursor:pointer;
+}
+
+#loginform {
+    background: linear-gradient(90deg, white 50%, #E9F9FF 50%);
+}
+
+.overlay .sign{
+    width: 50%;
+
+}
+
+.sign button,
+.button, .fileUpload input#uploadBtn{
+    font-weight: normal;
+    line-height: 1;
+    padding: 15px;
+    text-align: center;
+    background: rgba(0,0,0,0.15);
+    border: 1px solid black;
+    color: black;
+}
+
+.sign button:hover,
+.button:hover {
+    background: rgba(0,0,0,0.3);
+}
+
+.sign input[type="checkbox"],
+input[type="radio"] {
+    box-sizing: border-box;
+    padding: 0
+}
+
+.sign input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    height: auto
+}
+
+.sign input[type="text"],
+input[type="password"],
+input[type="password"],
+input[type="number"],
+input[type="search"],
+input[type="file"],
+textarea, #textarea,
+select {
+    background-color: #FFFFFF;
+    border: 1px solid #AFAFAF;
+    border-radius: 0;
+    display: block;
+    margin-bottom: 1.7453560168rem;
+    outline: none;
+    padding: 1.190015466rem 1.0472136101rem 1.0472136101rem;
+    width: 100%;
+    color: #a9a9a9;
+}
+
+.sign input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="number"]:focus,
+input[type="search"]:focus,
+textarea:focus
+input[type="file"]:focus,
+select:focus, #textarea:focus {
+    background-color: #F8F8F8;
+    border: 1px solid #505050
+}
+/* file */
+input[type="file"] {
+    cursor: pointer;
+    text-align: start
+}
+
+input[type="file"]::file-upload-button {
+    visibility: hidden;
+    width: 0
+}
+
+input[type="file"]::-webkit-file-upload-button {
+    visibility: hidden;
+    width: 0
+}
+
+input[type="file"]::-moz-file-upload-button {
+    visibility: hidden;
+    width: 0
+}
+
+.sign label {
+    cursor: pointer;
+    display: block;
+    font-size: 80%
+}
+
+
+.sign input[type="checkbox"],
+input[type="radio"] {
+    border: 0;
+    cursor: pointer;
+    margin-bottom: 1.3090170126rem
+}
+
+.sign input[type="checkbox"]+label,
+input[type="radio"]+label
+input[type="number"]+label {
+    display: inline-block;
+    margin-left: 0.6545085063rem;
+    margin-right: 1.3090170126rem;
+    margin-bottom: 0;
+    vertical-align: baseline
+}
+
+.sign .container{
+    z-index: 2;
+    width:90%;
+    padding-left: 0px;
+}
+
+.sign span.psw {
+    float: right;
+    padding-top: 16px;
+}
+#forgot {
+    font-size: 15px;
+}
+
+#forgot:hover{
+    color: rgba(0,0,0,0.3);
+}
+
+#signin {
+    float: left;
+}
+
+#signup {
+    padding-left: 10px;
+    float: right;
+}
+
+#editing {
+    width: 100%;
+    padding-left:0px;
+}
+#editing .container{
+    padding-left: 0px;
+    margin-left: 0px;
+}
+
+#post {
+    display: inline-block;
+    width: 100%;
+}
+
+#publish {
+    float: right;
+}
+
+#inline-label {
+    display: inline-block;
+}
+
+#grey {
+    float:right;
+    border: none;
+    width: 153px;
+    height: 27px;
+    background-color: rgba(0,0,0,0.3)
+}
+
+#lightgrey {
+    float:right;
+    border: none;
+    width: 153px;
+    height: 27px;
+}
+
+#textarea {
+    width: 100%;
+    height: 500px;
+    font-size: 30px;
+    border-top: 50px solid rgba(0,0,0,0.15);
+    border-bottom: 30px solid rgba(0,0,0,0.15);
+}
+
+#cancel {
+    float: right;
+}
+
+#save {
+    float: right;
+    margin-right: 47px;
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+    span.psw {
+       display: block;
+       float: none;
+    }
+}
+
+.card {
+    background-color:#FCF9ED;
+    resize: none;
+    border: none;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.15);
+    transition: box-shadow 0.3s ease-in-out;
+    height: auto;
+    padding: 20px;
+    color: black;
+    text-align: left;
+}
+
+.card:hover{
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+.card h2{
+    text-align: left;
+}
+
+.card a {
+    color: black;
+}
+.card p{
+    text-align: left;
+    font-size: 30px;
+}
+
+.card #seemore {
+    font-family: "Fakt";
+    font-size: 20px;
+    text-transform: uppercase;
+    color: rgba(0,0,0,0.15);
+}
+
+.card #seemore:hover {
+    color: #4779EA;
+}
+
+#images figcaption {
+    color: black;
+    display: block;
+    padding: 2px;
+    background-color: #F2F2F2;
+    width: 215px;
+    font-size: 12px
+}
+
+figure figcaption {
+    color: ;
+    padding: 10px;
+    color: black;
+    display: inline;
+    width: 100px;
+    text-align: left;
+    background-color: #F2F2F2;
+}
+
+
+#images #featcaption {
+    background-color:#a4c9db;
+    color: #67afdf;
+    width: 115px;
+}
+#images #featured {
+    background-color:#E9F9FF;
+}
+
+
+/*
+figure figcaption {
+    color: ;
+    padding: 10px;
+    color: black;
+    display: inline;
+    width: 150px;
+    text-align: left;
+    background-color: rgba(0,0,0,0.15);
+}
+
+figure {
+    text-align: ;
+}
+
+#featcaption {
+    background-color:#a4c9db;
+    color: #67afdf;
+}
+#featured {
+    background-color:#E9F9FF;
+}*/

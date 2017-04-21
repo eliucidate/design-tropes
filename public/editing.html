@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Design Tropes</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/main.css" type="text/css" />
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"
+  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous"></script>
+  <script type="text/javascript" src="js/main.js"></script>
+  <style>
+  body {background-color:#FCF9ED;}
+  </style>
+
+</head>
+
+
+<body>
+<!-- MENU PAGE -->
+<div id="myNav" class="overlay">
+  <h5 class="font3" id="login" onclick="openLogin()"> LOGIN </h5>
+<div class="search">
+<h5 class="font3" id="menu" onclick="openNav()"> MENU </h5>
+<i class="glyphicon glyphicon-search" id="searchIcon"></i>
+</div>
+
+<div class="title">
+<h1 class="font1"> Design Tropes:<span class="font2"> Menu </span> <h1>
+</div>
+
+<div class="header">
+  <h5 class="font3"> Main Menu </span> <h5>
+</div>
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+
+  <div class="columns2">
+<a href="main.html" class="font1">Tropes </a> <br>
+<a href="#" class="font1" onclick="openNav2()">Indexes </a> <br>
+<a href="editing.html" class="font1">Submit </a> <br>
+<a href="#" class="font1">Guidelines</a> <br>
+<a href="about.html" class="font1">About</a> <br>
+<a href="about.hml" class="font1">Contact</a> <br>
+</div>
+
+<br>
+
+<i class="glyphicon glyphicon-search" id="searchIcon" style="font-size: 35px; color: black"></i> <input class="font1" type="text" id="searchInput" name="message" placeholder="Search">
+</div>
+
+<!-- TECHNOLOGY INDEX PAGE-->
+<div id="myNav2" class="overlay">
+  <h5 class="font3" id="login" onclick="openLogin()"> LOGIN </h5>
+  <div class="search">
+  <h5 class="font3" id="menu" onclick="openNav()"> MENU </h5>
+  <i class="glyphicon glyphicon-search" id="searchIcon"></i>
+  </div>
+
+  <div class="title">
+  <h1 class="font1"> Design Tropes:<span class="font2"> Technology Indexes </span> <h1>
+  </div>
+  <div class="header">
+    <h5 class="font3"> Index</h5>
+  </div>
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav2()">&times;</a>
+
+    <div>
+  <a href="#" class="font1">Female AI </a>
+  <a href="#" class="font1">Flat UI</a>
+  <a href="#" class="font1">Hard Shadows</a>
+  <a href="#" class="font1">Floor-Lit Rooms</a>
+  <a href="#" class="font1">Phygital</a>
+  <a href="#" class="font1">VR is the Future</a>
+  <a href="#" class="font1">3D Printing is the Future</a>
+  <a href="#" class="font1">Connected/Internet of Things</a>
+  </div>
+
+  <br>
+</div>
+
+
+<!--LOGIN PAGE -->
+<div id="loginform" class="overlay">
+  <h5 class="font3" id="login"> LOGIN </h5>
+  <div class="search">
+    <h5 class="font3" id="menu" onclick="openNav()"> MENU </h5>
+    <i class="glyphicon glyphicon-search" id="searchIcon"></i>
+  </div>
+
+  <div class="title">
+    <h1 class="font1"> Design Tropes:<span class="font2">Login </span> <h1>
+  </div>
+  <a href="javascript:void(0)" class="closebtn" onclick="closeLogin()">&times;</a>
+  <div id="form">
+  <form action="#" class="sign" id="signin">
+     <div class="header">
+      <h5 class="font3">Returning Users</span> <h5>
+    </div>
+    <h2> Sign In:</h2>
+      <div class="container">
+        <label class="font3"><b>Email</b></label>
+        <input type="text" placeholder="Enter Username" name="uname" required>
+
+        <label class="font3"><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" name="psw" required>
+
+        <button type="submit">Sign In</button> <br> <br>
+        <input type="checkbox" checked="checked"> Remember me
+        <a href="#" id="forgot">Forgot your Password?</a>
+      </div>
+  </form>
+  <form action="#" class="sign" id="signup">
+    <div class="header">
+      <h5 class="font3">New Users</span> <h5>
+    </div>
+    <h2> Sign Up:</h2>
+    <div class="container">
+      <label class="font3"><b>Username</b></label>
+      <input type="text" placeholder="Enter Username" name="uname" required>
+      <label class="font3"><b>Email</b></label>
+      <input type="text" placeholder="Enter Email" name="email" required>
+      <label class="font3"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="psw" required>
+      <label class="font3"><b>Confirm Password</b></label>
+      <input type="password" placeholder="Enter Password" name="psw2" required>
+
+      <button type="submit">Sign Up</button> <br> <br>
+    </div>
+  </form> <br>
+
+</div>
+
+</div>
+
+
+<!-- HOME PAGE -->
+<div class="nav">
+  <h5 class="font3" id="login" onclick="openLogin()"> LOGIN </h5>
+  <div class="search">
+  <h5 class="font3" id="menu" onclick="openNav()"> MENU </h5>
+  <i class="glyphicon glyphicon-search" id="searchIcon"></i>
+</div> </div>
+
+<div class="title">
+<h1 class="font1"> Design Tropes:<span class="font2"> Gradients </span> <h1>
+</div>
+
+<div class="header">
+  <h5 class="font3"> Editing </span> <h5>
+</div>
+<h1 class="font1"> Edit Trope </h1>
+<form action="#" class="sign" id="editing">
+    <div class="container">
+      <label class="font3"><b>Title</b></label>
+      <input type="text" placeholder="Enter Username" name="uname" required>
+      <label class="font3"><b>Example Source</b></label>
+      <input type="file">
+      <div id="post"><a href="#" class="font3" id="cancel">Cancel</a> <a href="#" class="font3" id="save">Save</a> </div>
+      <div id="post"><label class="font3" id="inline-label"><b>Post</b></label> <button id="grey"></button> <button id="lightgrey"></button> </div>
+<div id="textarea" contenteditable><p>Lorem <span style="color: #4779EA">ipsum</span> dolor sit amet, <span style="color: #4779EA">vix in etiam solet.</span> Pri nostrud tincidunt te, at duo novum expetenda. <span style="color: #4779EA">Dicit appareat</span> efficiendi vel ne, no has viris utamur nostrud. Illud falli <span style="color: #4779EA">semper nec eu</span>. Ei ipsum falli mei, no sanctus maluisset pri. In mucius interpretaris eum.</p>
+<p>Eam an veritus detracto. Eam ex dicant copiosae, noster <span style="color: #4779EA">ponderum appellantur eum ad </span>, ridens accusata pro no. Mollis explicari reprehendunt eam an. No euripidis deterruisset eos, nec ne stet postulant.</p></div>
+      <button type="submit" id="publish">Publish</button> <br> <br>
+    </div>
+  </form>
+<br>
+
+<div class="header">
+  <h5 class="font3">&copy; Design Tropes<h5>
+</div>
+<div id="footer" class="columns">
+
+<a href="main.html" class="trope" id ="footitem">Design Tropes</a><br>
+<a href="openNav2()" class="trope" id ="footitem">Indexes</a><br>
+<a href="editing.html" class="trope" id ="footitem">Submit</a> <br>
+<a href="#" class="trope" id ="footitem">Guidlines</a><br>
+<a href="about.html" class="trope" id ="footitem" >About</a><br>
+<a href="#" class="trope" id ="footitem">Contact</a>  <br>
+
+</div>
+
+
+</body>
+</html>
