@@ -21,10 +21,6 @@ var config = {
   database: 'd45iptetmms9kj',
 };
 
-process.on('unhandledRejection', function(e) {
-  console.log(e.message, e.stack)
-})
-
 // create the pool somewhere globally so its lifetime
 // lasts for as long as your app is running
 var pool = new Pool(config)
@@ -72,24 +68,25 @@ app.get('/:entryName', function(request, response){
 
 app.post('/entries/add', addDB);
 app.post('/entries/update', updateDB);
-app.get('/entries/add', queryDB);
+app.get('/entries/:entryName', queryDB);
 
 function addDB(request, response) {
   let description = request.body.message;
   let title = request.body.title;
+  console.log(title, description);
   //var file = request.body.file; 
   //update DB
   let rsp = "add success";
   var sql = "INSERT INTO entries (name, description) VALUES ($1, $2)";
   pool.query(sql, [title, description], function(error, data){
 	  if (error){
-		  rsp = error;
+		  response.json({value:"error"});
 		  console.log(error);
 	  } else {
 		  console.log(data);
+		  response.json({value:"success"});
 	  }
 	});
-  response.json({value:rsp});
 };
 
 function updateDB(request, response) {
@@ -101,23 +98,24 @@ function updateDB(request, response) {
   var sql = "UPDATE entries SET description = ($2) WHERE title=($1)";
   pool.query(sql, [title, description], function(error, data){
 	  if (error){
-		  rsp = error;
+		  response.json({value:"error"});
 		  console.log(error);
 	  } else {
-		  console.log(data);
+		  response.json({value:"success"});
 	  }
 	});
-  response.json({value:rsp});
+
 };
 
-function queryDB(req, resp){
-	let title = request.body.title;
-	let rsp = "error: entry not found";
-	var q = conn.query("SELECT description FROM message WHERE room =($1), [title], function(error, data){
+function queryDB(request, resp){
+	let title = request.params.entryName;
+	//console.log(title);
+	var q = pool.query("SELECT description FROM entries WHERE name =($1)", [title], function(error, data){
 	  if (error){
+		  resp.json('Error: Entry not Found!');
 		  console.log(error);
 	  } else {
-		  resp.json(data);
+		  resp.json(data.rows);
 	  }
 	});
 }
