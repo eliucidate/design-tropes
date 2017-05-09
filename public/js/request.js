@@ -1,20 +1,17 @@
-if(typeof(String.prototype.trim) === "undefined")
-{
-    String.prototype.trim = function() 
-    {
-        return String(this).replace(/^\s+|\s+$/g, '-');
-    };
+function trim(str) {
+	str = str.replace(/\s/g, "-");
+	return str;
 }
-
 function sendMessage(){
 	var message = document.getElementById('textarea').innerHTML;
+	var tag = document.getElementById('cat').value;
 	var title = document.getElementById('stitle').value;
-	var file = document.getElementById('filein');
-	console.log(title, file, message);
-	$.post('/entries/add', {message: message, title:title}, function(res){
+	var file = document.getElementById('filein').files;
+	console.log(title, file, message, tag);
+	$.post('/entries/add', {message: message, title:title, tag:tag}, function(res){
 			console.log(res);
 			if (res.value == "success") {
-				window.location.href = title.trim();
+				window.location.href = trim(title);
 			} else {
 				let err = document.getElementById('errormsg');
 				err.style.display = "block";

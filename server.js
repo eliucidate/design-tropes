@@ -21,6 +21,13 @@ var config = {
   database: 'd45iptetmms9kj',
 };
 
+//helper trim function
+function trim(str) {
+	str = str.replace(/\s/g, "-");
+	return str;
+}
+
+
 // create the pool somewhere globally so its lifetime
 // lasts for as long as your app is running
 var pool = new Pool(config)
@@ -59,26 +66,30 @@ app.get('/', function(request, response){
 
 app.get('/:entryName', function(request, response){
   // do any work you need to do, then
-  let entryName = request.params.entryName;
-  //check if entry in db
-  //return 404 if not
   response.sendFile(__dirname+'/public/gradients.html');
+});
+
+app.get('/:entryName/edit', function(request, response){
+  response.sendFile(__dirname+'/public/editing.html');
 
 });
 
 app.post('/entries/add', addDB);
 app.post('/entries/update', updateDB);
+app.get('/get/new', queryNew);
 app.get('/entries/:entryName', queryDB);
+app.get('/tags/:tagName', queryTag);
 
 function addDB(request, response) {
   let description = request.body.message;
   let title = request.body.title;
-  console.log(title, description);
+  let tag = request.body.tag;
+  console.log(title, description, tag);
   //var file = request.body.file; 
   //update DB
   let rsp = "add success";
-  var sql = "INSERT INTO entries (name, description) VALUES ($1, $2)";
-  pool.query(sql, [title, description], function(error, data){
+  var sql = "INSERT INTO entries (name, url, description, tag) VALUES ($1, $2, $3, $4)";
+  pool.query(sql, [title, trim(title), description, tag], function(error, data){
 	  if (error){
 		  response.json({value:"error"});
 		  console.log(error);
@@ -92,11 +103,13 @@ function addDB(request, response) {
 function updateDB(request, response) {
   let description = request.body.message;
   let title = request.body.title;
+  let tag = request.body.tag;
+  let url = request.body.url;
   //var file = request.body.file; 
   //update DB
   let rsp = "update success";
-  var sql = "UPDATE entries SET description = ($2) WHERE title=($1)";
-  pool.query(sql, [title, description], function(error, data){
+  var sql = "UPDATE entries SET name=($1),description =($2), tag=($3), created_at=NOW() WHERE url=($4)";
+  pool.query(sql, [title, description, tag, url], function(error, data){
 	  if (error){
 		  response.json({value:"error"});
 		  console.log(error);
@@ -104,13 +117,12 @@ function updateDB(request, response) {
 		  response.json({value:"success"});
 	  }
 	});
-
 };
 
 function queryDB(request, resp){
 	let title = request.params.entryName;
 	//console.log(title);
-	var q = pool.query("SELECT description FROM entries WHERE name =($1)", [title], function(error, data){
+	var q = pool.query("SELECT name, description, tag, created_at FROM entries WHERE url=($1)", [title], function(error, data){
 	  if (error){
 		  resp.json('Error: Entry not Found!');
 		  console.log(error);
@@ -120,9 +132,34 @@ function queryDB(request, resp){
 	});
 }
 
+function queryTag(request, resp){
+	let title = request.params.tagName;
+	//console.log(title);
+	var q = pool.query("SELECT name, url FROM entries WHERE tag=($1)", [title], function(error, data){
+	  if (error){
+		  resp.json('Error: Entry not Found!');
+		  console.log(error);
+	  } else {
+		  resp.json(data.rows);
+	  }
+	});
+}
+
+function queryNew(request, resp){
+	let title = request.params.tagName;
+	//console.log(title);
+	var q = pool.query("SELECT name, description, url, created_at FROM entries ORDER BY created_at DESC limit 10", function(error, data){
+	  if (error){
+		  resp.json('Error: Entry not Found!');
+		  console.log(error);
+	  } else {
+		  resp.json(data.rows);
+	  }
+	});
+}
 
 pool
-  .query('CREATE TABLE IF NOT EXISTS entries (name varchar(40) NOT NULL, description text NOT NULL, CONSTRAINT production UNIQUE(name))')
+  .query('CREATE TABLE IF NOT EXISTS entries (name varchar(40) NOT NULL, url varchar(40) NOT NULL, description text NOT NULL, tag varchar(40) NOT NULL, created_at timestamptz NOT NULL DEFAULT now(), CONSTRAINT production UNIQUE(url), CONSTRAINT nameoverlap UNIQUE(name))')
   .then(function() {
     app.listen(8080, function() {
       console.log('server is listening on 8080')

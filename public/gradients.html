@@ -9,7 +9,6 @@
   crossorigin="anonymous"></script>
   <script type="text/javascript" src="js/main.js"></script>
   <script type="text/javascript" src="js/entry.js"></script>
-  
   <style>
   body {background-color:#FCF9ED;}
   </style>
@@ -35,10 +34,10 @@
 </div>
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
 
-  <div class="columns2">
+<div class="columns2">
 <a href="main.html" class="font1">Tropes </a> <br>
 <a href="#" class="font1" onclick="openNav2()">Indexes </a> <br>
-<a href="editing.html" class="font1">Submit </a> <br>
+<a href="submit.html" class="font1">Submit </a> <br>
 <a href="#" class="font1">Guidelines</a> <br>
 <a href="about.html" class="font1">About</a> <br>
 <a href="about.hml" class="font1">Contact</a> <br>
@@ -146,29 +145,25 @@
 <h1 class="font1"> Design Tropes:<span class="font2"> Explore </span> <h1>
 </div>
 
+<div id="entrycontent">
 <div class="header">
   <ul>
-  <li><a href="#" class="font3" id="pagetitle">Gradients</a></li>
-  <li style="float:right"><a href="editing.html" class="font3">Edit Page</a></li>
+  <li><h2 id="ctitle" class="font3">Gradients</a></h2>
+  <li style="float:right"><a href="javascript:void(0)" onclick="edit();" class="font3">Edit Page</a></li>
   <li style="float:right"><a href="#" class="font3">History</a></li>
 </ul>
+
+<div>
+	<p id="timestamp" style="color:darkgray"></p>
 </div>
-<div id="content">
-<p class="font1" style="font-size: 30px"> Lorem <span style="color: #4779EA">ipsum</span> dolor sit amet, <span style="color: #4779EA">vix in etiam solet.</span> Pri nostrud tincidunt te, at duo novum expetenda. <span style="color: #4779EA">Dicit appareat</span> efficiendi vel ne, no has viris utamur nostrud. Illud falli <span style="color: #4779EA">semper nec eu</span>. Ei ipsum falli mei, no sanctus maluisset pri. In mucius interpretaris eum.</p>
-<p class="font1" style="font-size: 30px">Eam an veritus detracto. Eam ex dicant copiosae, noster <span style="color: #4779EA">ponderum appellantur eum ad </span>, ridens accusata pro no. Mollis explicari reprehendunt eam an. No euripidis deterruisset eos, nec ne stet postulant.</p></div>
-    </div>
+</div>
+
+<div>
+<p id="content" class="font1" style="font-size: 30px"></p></div>
 <div class="header">
   <h5 class="font3">Related Tropes<h5>
 </div>
 <div id="footer" class="columns">
-
-<a href="main.html" class="trope" id ="footitem">RGB Blue</a><br>
-<a href="openNav2()" class="trope" id ="footitem">Pastel Colors</a><br>
-<a href="editing.html" class="trope" id ="footitem">Arbitrary Forms</a> <br>
-<a href="#" class="trope" id ="footitem">Warped Type</a><br>
-<a href="about.html" class="trope" id ="footitem" >Halftone Images</a><br>
-<a href="#" class="trope" id ="footitem">Beveled Type</a>  <br>
-
 </div>
 
 <div class="header">
@@ -224,7 +219,7 @@
     </figure>
   </a>
 </div>
-
+</div>
 
 </body>
 </html>

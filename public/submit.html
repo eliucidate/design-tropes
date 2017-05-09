@@ -3,12 +3,12 @@
 <head>
     <title>Design Tropes</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-        <link rel="stylesheet" href="../css/main.css" type="text/css" />
+        <link rel="stylesheet" href="css/main.css" type="text/css" />
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"
   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
   crossorigin="anonymous"></script>
-  <script type="text/javascript" src="../js/main.js"></script>
-  <script type="text/javascript" src="../js/editing.js"></script>
+  <script type="text/javascript" src="js/main.js"></script>
+  <script type="text/javascript" src="js/request.js"></script>
   <style>
   body {background-color:#FCF9ED;}
   </style>
@@ -146,9 +146,9 @@
 </div>
 
 <div class="header">
-  <h5 class="font3"> Editing </span> <h5>
+  <h5 class="font3"> Submitting </span> <h5>
 </div>
-<h1 class="font1"> Edit Trope </h1>
+<h1 class="font1"> Submit Trope </h1>
 <form action="#" enctype="multipart/form-data" class="sign" id="editing">
     <div class="container">
       <label class="font3"><b>Title</b></label>
@@ -167,7 +167,7 @@
 	</select> 
       <label class="font3"><b>Select Example(s)</b></label>
       <input id="filein" name="file[]" type="file" multiple>
-      <div id="post"><a href="javascript:void(0)" onclick="done();" class="font3" id="cancel">Cancel</a></div>
+      <div id="post"><a href="#" class="font3" id="cancel">Cancel</a> <a href="#" class="font3" id="save">Save</a> </div>
       <div id="post"><label class="font3" id="inline-label"><b>Post</b></label> <button id="grey"></button> <button id="lightgrey"></button> </div>
 <div id="textarea" contenteditable></div>
       <button type="button" id="publish" onclick="sendMessage()">Publish</button> <br> <br>
