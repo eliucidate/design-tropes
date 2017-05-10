@@ -2,6 +2,10 @@ $(document).ready(function(){
     getEntry();
 });
 
+var pictemp = `
+    <figure class="cont">
+      <img src="placeholder" alt="">
+    </figure>`
 var entryName;
 function getEntry(){
 	entryName = window.location.pathname.split('.html')[0];
@@ -18,6 +22,17 @@ function getEntry(){
 				}
 				document.getElementById('timestamp').innerHTML = outstr;
 				getRelatedEntries(res[0].tag, res[0].name);
+				
+				//load pictures
+				let imgs = document.getElementById('images');
+				let links = res[0].links;
+				for (g in links) {
+					let a = document.createElement('a');
+					a.href = links[g];
+					a.className = "images";
+					a.innerHTML = pictemp.replace("placeholder", links[g]);
+					imgs.appendChild(a);
+				}
 			} else {
 				document.getElementById('entrycontent').innerHTML = "<h2>Entry not found</h2>";
 			}

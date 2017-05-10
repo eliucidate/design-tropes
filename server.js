@@ -6,7 +6,7 @@ const app = express();
 const path = require("path");
 
 var bodyParser = require('body-parser');
-app.use(bodyParser.urlencoded({extended:false}));
+app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
 
 const pg = require('pg')
@@ -82,17 +82,28 @@ app.post('/entries/update', updateDB);
 app.get('/get/new', queryNew);
 app.get('/entries/:entryName', queryDB);
 app.get('/tags/:tagName', queryTag);
+var validUrl = require('valid-url');
 
 function addDB(request, response) {
   let description = request.body.message;
   let title = request.body.title;
   let tag = request.body.tag;
-  console.log(title, description, tag);
-  //var file = request.body.file; 
+  let files = request.body.files; 
+  console.log(title, description, tag, files);
+  for (i in files){
+	  console.log(files[i]);
+	  if (!validUrl.isWebUri(files[i])){
+		  response.json({value:"broken link"});
+		  return;
+	  }
+  }
   //update DB
+  let filestr = JSON.stringify(files).slice(1, -1);
+  filestr = '{' + filestr + '}';
+  //console.log(filestr);
   let rsp = "add success";
-  var sql = "INSERT INTO entries (name, url, description, tag) VALUES ($1, $2, $3, $4)";
-  pool.query(sql, [title, trim(title), description, tag], function(error, data){
+  var sql = "INSERT INTO entries (name, url, description, tag, links) VALUES ($1, $2, $3, $4, $5)";
+  pool.query(sql, [title, trim(title), description, tag, filestr], function(error, data){
 	  if (error){
 		  response.json({value:"error"});
 		  console.log(error);
@@ -108,11 +119,23 @@ function updateDB(request, response) {
   let title = request.body.title;
   let tag = request.body.tag;
   let url = request.body.url;
+  let files = request.body.files; 
+  console.log(title, description, tag, files);
+  for (i in files){
+	  console.log(files[i]);
+	  if (!validUrl.isWebUri(files[i])){
+		  response.json({value:"broken link"});
+		  return;
+	  }
+  }
+  //update DB
+  let filestr = JSON.stringify(files).slice(1, -1);
+  filestr = '{' + filestr + '}';
   //var file = request.body.file; 
   //update DB
   let rsp = "update success";
-  var sql = "UPDATE entries SET name=($1),description =($2), tag=($3), edits=edits+1, created_at=NOW() WHERE url=($4)";
-  pool.query(sql, [title, description, tag, url], function(error, data){
+  var sql = "UPDATE entries SET name=($1),description =($2), tag=($3), edits=edits+1, created_at=NOW(), links=($5) WHERE url=($4)";
+  pool.query(sql, [title, description, tag, url, filestr], function(error, data){
 	  if (error){
 		  response.json({value:"error"});
 		  console.log(error);
@@ -125,7 +148,7 @@ function updateDB(request, response) {
 function queryDB(request, resp){
 	let title = request.params.entryName;
 	//console.log(title);
-	var q = pool.query("SELECT name, description, tag, created_at, edits FROM entries WHERE url=($1)", [title], function(error, data){
+	var q = pool.query("SELECT name, description, tag, created_at, edits, links FROM entries WHERE url=($1)", [title], function(error, data){
 	  if (error){
 		  resp.json('Error: Entry not Found!');
 		  console.log(error);
@@ -173,7 +196,7 @@ function queryNew(request, resp){
 }
 
 pool
-  .query('CREATE TABLE IF NOT EXISTS entries (name varchar(40) NOT NULL, url varchar(40) NOT NULL, description text NOT NULL, tag varchar(40) NOT NULL, created_at timestamptz NOT NULL DEFAULT now(), edits INTEGER NOT NULL DEFAULT 0, CONSTRAINT production UNIQUE(url), CONSTRAINT nameoverlap UNIQUE(name))')
+  .query('CREATE TABLE IF NOT EXISTS entries (name varchar(40) NOT NULL, url varchar(40) NOT NULL, description text NOT NULL, tag varchar(40) NOT NULL, created_at timestamptz NOT NULL DEFAULT now(), edits INTEGER NOT NULL DEFAULT 0, links text[], CONSTRAINT production UNIQUE(url), CONSTRAINT nameoverlap UNIQUE(name))')
   .then(function() {
     app.listen(8080, function() {
       console.log('server is listening on 8080')
