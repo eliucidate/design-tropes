@@ -10,7 +10,13 @@ function getEntry(){
 			if (res[0]) {
 				document.getElementById('ctitle').innerHTML = res[0].name;
 				document.getElementById('content').innerHTML = res[0].description;
-				document.getElementById('timestamp').innerHTML = "Last updated: " + res[0].created_at.slice(0,-8);
+				let outstr = "Last updated: " + res[0].created_at.slice(0,-8);
+				if (res[0].edits == 1) {
+					outstr = outstr + ", 1 edit";
+				} else if (res[0].edits > 1){
+					outstr = outstr + ", " + res[0].edits + " edits";
+				}
+				document.getElementById('timestamp').innerHTML = outstr;
 				getRelatedEntries(res[0].tag, res[0].name);
 			} else {
 				document.getElementById('entrycontent').innerHTML = "<h2>Entry not found</h2>";

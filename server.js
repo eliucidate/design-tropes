@@ -71,7 +71,10 @@ app.get('/:entryName', function(request, response){
 
 app.get('/:entryName/edit', function(request, response){
   response.sendFile(__dirname+'/public/editing.html');
+});
 
+app.get('/tag/:tagName', function(request, response){
+  response.sendFile(__dirname+'/public/tags.html');
 });
 
 app.post('/entries/add', addDB);
@@ -108,7 +111,7 @@ function updateDB(request, response) {
   //var file = request.body.file; 
   //update DB
   let rsp = "update success";
-  var sql = "UPDATE entries SET name=($1),description =($2), tag=($3), created_at=NOW() WHERE url=($4)";
+  var sql = "UPDATE entries SET name=($1),description =($2), tag=($3), edits=edits+1, created_at=NOW() WHERE url=($4)";
   pool.query(sql, [title, description, tag, url], function(error, data){
 	  if (error){
 		  response.json({value:"error"});
@@ -122,7 +125,7 @@ function updateDB(request, response) {
 function queryDB(request, resp){
 	let title = request.params.entryName;
 	//console.log(title);
-	var q = pool.query("SELECT name, description, tag, created_at FROM entries WHERE url=($1)", [title], function(error, data){
+	var q = pool.query("SELECT name, description, tag, created_at, edits FROM entries WHERE url=($1)", [title], function(error, data){
 	  if (error){
 		  resp.json('Error: Entry not Found!');
 		  console.log(error);
@@ -148,7 +151,7 @@ function queryTag(request, resp){
 function queryNew(request, resp){
 	let title = request.params.tagName;
 	//console.log(title);
-	var q = pool.query("SELECT name, description, url, created_at FROM entries ORDER BY created_at DESC limit 10", function(error, data){
+	var q = pool.query("SELECT name, description, url, edits, created_at FROM entries ORDER BY created_at DESC limit 10", function(error, data){
 	  if (error){
 		  resp.json('Error: Entry not Found!');
 		  console.log(error);
@@ -159,7 +162,7 @@ function queryNew(request, resp){
 }
 
 pool
-  .query('CREATE TABLE IF NOT EXISTS entries (name varchar(40) NOT NULL, url varchar(40) NOT NULL, description text NOT NULL, tag varchar(40) NOT NULL, created_at timestamptz NOT NULL DEFAULT now(), CONSTRAINT production UNIQUE(url), CONSTRAINT nameoverlap UNIQUE(name))')
+  .query('CREATE TABLE IF NOT EXISTS entries (name varchar(40) NOT NULL, url varchar(40) NOT NULL, description text NOT NULL, tag varchar(40) NOT NULL, created_at timestamptz NOT NULL DEFAULT now(), edits INTEGER NOT NULL DEFAULT 0, CONSTRAINT production UNIQUE(url), CONSTRAINT nameoverlap UNIQUE(name))')
   .then(function() {
     app.listen(8080, function() {
       console.log('server is listening on 8080')

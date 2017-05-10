@@ -8,7 +8,7 @@
   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
   crossorigin="anonymous"></script>
   <script type="text/javascript" src="../js/main.js"></script>
-  <script type="text/javascript" src="../js/editing.js"></script>
+  <script type="text/javascript" src="../js/tag.js"></script>
   <style>
   body {background-color:#FCF9ED;}
   </style>
@@ -142,53 +142,22 @@
 </div> </div>
 
 <div class="title">
-<h1 class="font1"> Design Tropes:<span class="font2"> Submitting a Trope </span> <h1>
+<h1 class="font1"> Design Tropes:<span class="font2"> Explore </span> <h1>
 </div>
 
+<div id="entrycontent">
 <div class="header">
-  <h5 class="font3"> Editing </span> <h5>
-</div>
-<h1 class="font1"> Edit Trope </h1>
-<form action="#" enctype="multipart/form-data" class="sign" id="editing">
-    <div class="container">
-      <label class="font3"><b>Title</b></label>
-      <input id="stitle" type="text" placeholder="Enter Title" name="uname" required>
-	  <label class="font3"><b>Category</b></label>
-	   <select id="cat">
-		  <option value="Architecture">Architecture</option>
-		  <option value="Color">Color</option>
-		  <option value="Concept">Concept</option>
-		  <option value="GraphicDesign">Graphic Design</option>
-		  <option value="IndustrialDesign">Industrial Design</option>
-		  <option value="InteriorDesign">Interior Design</option>
-		  <option value="Photography">Photography</option>
-		  <option value="Technology">Technology</option>
-		  <option value="Sustainability">Sustainability</option>
-	</select> 
-      <label class="font3"><b>Select Example(s)</b></label>
-      <input id="filein" name="file[]" type="file" multiple>
-      <div id="post"><a href="javascript:void(0)" onclick="done();" class="font3" id="cancel">Cancel</a></div>
-      <div id="post"><label class="font3" id="inline-label"><b>Post</b></label> <button id="grey"></button> <button id="lightgrey"></button> </div>
-<div id="textarea" contenteditable></div>
-      <button type="button" id="publish" onclick="sendMessage()">Publish</button> <br> <br>
-    </div>
-  </form>
-<br>
-
-<div class="header">
-  <h5 class="font3">&copy; Design Tropes<h5>
-</div>
-<div id="footer" class="columns">
-
-<a href="main.html" class="trope" id ="footitem">Design Tropes</a><br>
-<a href="openNav2()" class="trope" id ="footitem">Indexes</a><br>
-<a href="submit.html" class="trope" id ="footitem">Submit</a> <br>
-<a href="#" class="trope" id ="footitem">Guidlines</a><br>
-<a href="about.html" class="trope" id ="footitem" >About</a><br>
-<a href="#" class="trope" id ="footitem">Contact</a>  <br>
-
+  <ul>
+  <li><h2 id="ctitle" class="font3">Gradients</a></h2>
+</ul>
 </div>
 
+<div>
+	<h2 id="error"><h2>
+	<ul id="tagList">
+</div>
+
+</div>
 
 </body>
 </html>
