@@ -25,7 +25,7 @@ function getEntry(){
 			let template = str;
 			let row = res[i];
 			let date = row.created_at.slice(0, 10);
-			template = template.replace("placeholder0", row.url);
+			template = template.replace(/placeholder0/g, row.url);
 			template = template.replace("placeholder2", row.name);
 			template = template.replace("placeholder3", row.description.slice(0, 200));
 			template = template.replace("placeholder4", date)
@@ -36,8 +36,4 @@ function getEntry(){
 			tropelist.appendChild(a);
 		}
 		});
-}
-
-function getTag(input) {
-	window.location.href = "/tag/" + input;
 }

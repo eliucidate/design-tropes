@@ -38,9 +38,9 @@
 <a href="../main.html" class="font1">Tropes </a> <br>
 <a href="#" class="font1" onclick="openNav2()">Indexes </a> <br>
 <a href="../submit.html" class="font1">Submit </a> <br>
-<a href="#" class="font1">Guidelines</a> <br>
+<a href="../guidelines.html" class="font1">Guidelines</a> <br>
 <a href="../about.html" class="font1">About</a> <br>
-<a href="../about.hml" class="font1">Contact</a> <br>
+<a href="../connect.html" class="font1">Contact</a> <br>
 </div>
 
 <br>
@@ -65,14 +65,13 @@
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav2()">&times;</a>
 
     <div>
-  <a href="#" class="font1">Female AI </a>
-  <a href="#" class="font1">Flat UI</a>
-  <a href="#" class="font1">Hard Shadows</a>
-  <a href="#" class="font1">Floor-Lit Rooms</a>
-  <a href="#" class="font1">Phygital</a>
-  <a href="#" class="font1">VR is the Future</a>
-  <a href="#" class="font1">3D Printing is the Future</a>
-  <a href="#" class="font1">Connected/Internet of Things</a>
+  <a href="javascript:void(0)" onclick="getTag('Architecture');" id="trope1" class="font1">Architecture </a><br>
+<a href="javascript:void(0)" onclick="getTag('Color');" class="font1" id ="trope2">Color </a><br>
+<a href="javascript:void(0)" onclick="getTag('Concept');" class="font1" id ="trope3">Concept </a><br>
+<a href="javascript:void(0)" onclick="getTag('GraphicDesign');" class="font1" id ="trope4">Graphic Design </a> <br>
+<a href="javascript:void(0)" onclick="getTag('all');" class="font1" id ="trope5">All Indexes</a><br>
+<a href="javascript:void(0)" onclick="getTag('IndustrialDesign');" class="font1" id ="trope6" >Industrial Design </a><br>
+<a href="javascript:void(0)" onclick="getTag('InteriorDesign');" class="font1" id ="trope7">Interior Design </a>  <br>
   </div>
 
   <br>
@@ -170,6 +169,7 @@
       <div id="post"><a href="javascript:void(0)" onclick="done();" class="font3" id="cancel">Cancel</a></div>
       <div id="post"><label class="font3" id="inline-label"><b>Post</b></label> <button id="grey"></button> <button id="lightgrey"></button> </div>
 <div id="textarea" contenteditable></div>
+<h2 id="error"></h2>
       <button type="button" id="publish" onclick="sendMessage()">Publish</button> <br> <br>
     </div>
   </form>

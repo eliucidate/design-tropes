@@ -137,8 +137,8 @@ function queryDB(request, resp){
 
 function queryTag(request, resp){
 	let title = request.params.tagName;
-	//console.log(title);
-	var q = pool.query("SELECT name, url FROM entries WHERE tag=($1)", [title], function(error, data){
+	if (title=='all'){
+		let q = pool.query("SELECT name, url FROM entries", function(error, data){
 	  if (error){
 		  resp.json('Error: Entry not Found!');
 		  console.log(error);
@@ -146,6 +146,17 @@ function queryTag(request, resp){
 		  resp.json(data.rows);
 	  }
 	});
+	} else {
+	//console.log(title);
+		let q = pool.query("SELECT name, url FROM entries WHERE tag=($1)", [title], function(error, data){
+		  if (error){
+			  resp.json('Error: Entry not Found!');
+			  console.log(error);
+		  } else {
+			  resp.json(data.rows);
+		  }
+		});
+	}
 }
 
 function queryNew(request, resp){

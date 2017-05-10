@@ -13,7 +13,7 @@ function getEntry(){
 				document.getElementById('cat').value = res[0].tag;
 				document.getElementById('textarea').innerHTML = res[0].description;
 			} else {
-				document.getElementById('entrycontent').innerHTML = "<h2>Entry not found</h2>";
+				document.getElementById('error').innerHTML = "Entry not found";
 			}
 		});
 }
@@ -24,6 +24,7 @@ function sendMessage(){
 	var title = document.getElementById('stitle').value;
 	var file = document.getElementById('filein').files;
 	$.post('/entries/update', {message: message, url:entryName.slice(1), title:title, tag:tag}, function(res){
+			document.getElementById('error').innerHTML = "Changes successfully added";
 			console.log(res);
 		});
 }

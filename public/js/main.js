@@ -43,3 +43,7 @@ function closeLogin() {
     document.getElementById("myNav2").style.height = "0%";
     //document.getElementById("background").style.height = "0%";
 }
+
+function getTag(input) {
+	window.location.href = "/tag/" + input;
+}
